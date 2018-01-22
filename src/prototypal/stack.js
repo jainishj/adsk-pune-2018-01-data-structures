@@ -1,11 +1,28 @@
 const Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  const storage = Object.create(stackMethods);
+  storage.top = -1;
+  return storage;
 };
 
-const stackMethods = {};
+const stackMethods = {
+  push: function(value) {
+    this[this.top += 1] = value;
+  },
 
+  pop: function() {
+    if(this.size() > 0) {
+      let value = this[this.top];
+      delete this[this.top];
+      this.top -= 1;
+      return value;
+    }
+    return undefined;
+  },
 
+  size: function() {
+    return this.top + 1;
+  }
+};
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = Stack;
