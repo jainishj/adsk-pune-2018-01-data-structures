@@ -4,7 +4,7 @@ const Stack = function() {
   const storage = {
     top:-1
   }
-  Object.assign(storage, stackMethods);
+  _.extend(storage, stackMethods);
   return storage;
 };
 

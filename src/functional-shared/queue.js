@@ -6,7 +6,7 @@ const Queue = function() {
     front:0
   };
 
-  Object.assign(storage, queueMethods);
+  _.extend(storage, queueMethods);
 
   return storage;
 };
