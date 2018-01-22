@@ -15,15 +15,17 @@ const Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    let val = storage[storage.front];
-    delete storage[storage.front];
-    storage.front += 1;
-    return val;
+    if(storage.front < storage.rear) {
+      let val = storage[storage.front];
+      delete storage[storage.front];
+      storage.front += 1;
+      return val;
+    }
+    return undefined;
   };
 
   someInstance.size = function() {
-    let len = storage.rear - storage.front;
-    return len < 0 ? 0 : len;
+    return storage.rear - storage.front;
   };
 
   return someInstance;
