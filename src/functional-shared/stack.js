@@ -1,11 +1,32 @@
 const _ = require('underscore');
 
 const Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  const storage = {
+    top:-1
+  }
+  Object.assign(storage, stackMethods);
+  return storage;
 };
 
-const stackMethods = {};
+const stackMethods = {
+  push: function(value) {
+    this[this.top += 1] = value;
+  },
+
+  pop: function() {
+    if(this.size() > 0) {
+      let value = this[this.top];
+      delete this[this.top];
+      this.top -= 1;
+      return value;
+    }
+    return undefined;
+  },
+
+  size: function() {
+    return this.top + 1;
+  }
+};
 
 
 
