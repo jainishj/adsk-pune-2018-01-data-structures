@@ -16,7 +16,7 @@ const Queue = function() {
 
   someInstance.dequeue = function() {
     if(storage.front < storage.rear) {
-      let val = storage[storage.front];
+      const val = storage[storage.front];
       delete storage[storage.front];
       storage.front += 1;
       return val;
